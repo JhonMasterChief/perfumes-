@@ -12,13 +12,14 @@ Este documento es el contexto que debe leer cualquier automatización de Claude 
 ## Guardrails — no negociables
 - **Nunca** subir a un repo (público o privado) documentos con datos personales/financieros reales (facturas, números de teléfono personales, direcciones) — hoy no hay ninguno en esta carpeta, pero si en algún momento se guarda uno acá, debe ir al `.gitignore`.
 - **Nunca** inventar fotos de producto — mientras no haya fotos reales de las botellas, la landing y los posts se quedan en texto/diseño (ver regla ya existente en `identidad_marca.md`).
-- **Nunca** hacer `git push`, crear/borrar un proyecto de Vercel, o aprovisionar Supabase sin confirmación explícita del usuario en esa sesión — son acciones sobre cuentas reales, no gratis de deshacer.
+- **El repo ya está conectado a Vercel: un `git push` a `main` = deploy automático a producción.** Confirmar con el usuario ANTES de cada `git push` a este repo (ya no después) — no hay un paso de deploy separado que confirmar. Crear/borrar un proyecto de Vercel o aprovisionar Supabase también requiere confirmación explícita — son acciones sobre cuentas reales, no gratis de deshacer.
 - **Nunca** cambiar paleta, tipografía o tono de marca sin que el usuario lo pida expresamente.
 
-## Estado verificado del entorno (13/09/2026)
-- Esta carpeta **no es un repositorio git todavía**.
-- `gh` (GitHub CLI) **no está instalado** en esta máquina.
-- `vercel` CLI sí está instalado y con sesión iniciada como **`jhonmasterchief`** — 4 proyectos ya existentes en esa cuenta: `romary`, `vista-previa-vercel`, `landing-vita-frut`, `marketing-os`. Ninguno es de Bakhoor todavía.
+## Estado verificado del entorno (actualizado 13/09/2026, misma noche)
+- El repo de GitHub **`JhonMasterChief/perfumes-`** (privado) ya tiene el contenido de la landing (`index.html`, `docs/`, `assets/`, favicon, robots.txt, sitemap.xml) — poblado y con push hecho.
+- Vercel: proyecto **`bakhoor`** creado bajo `jhonmasterchiefs-projects`, **conectado directo al repo de GitHub** (`vercel link` lo detectó y conectó solo). Ya está desplegado y en vivo: **https://bakhoor-ruby.vercel.app**
+- **Importante — esto cambia el guardrail de despliegue:** al estar conectado el repo a Vercel, **cualquier `git push` a `main` dispara un deploy automático a producción**. Ya no hay un paso separado de "confirmar el deploy" — el punto de confirmación ahora es **antes del `git push`**, no después.
+- `gh` (GitHub CLI) sigue sin estar instalado — el push se hizo por HTTPS con las credenciales de git ya cacheadas en esta máquina, sin necesitarlo.
 - `supabase` CLI no está instalado (se puede usar sin CLI, vía integración de Vercel Marketplace).
 
 ## Stack objetivo
@@ -65,10 +66,11 @@ Ya hay agentes relevantes instalados en este entorno (`seo-specialist`, `ui-desi
 - Username y visibilidad (público/privado) del repo de GitHub.
 
 ## Checklist de próximos pasos, en orden
-1. [ ] Confirmar username de GitHub y visibilidad del repo (público/privado).
-2. [ ] `git init` + `.gitignore` + primer commit.
-3. [ ] Crear repo remoto en GitHub + push.
-4. [ ] Crear proyecto Vercel para Bakhoor + desplegar la landing.
+1. [x] Username de GitHub confirmado: `JhonMasterChief`. Repo privado ya existente: `perfumes-`.
+2. [x] Repo poblado (`index.html`, `docs/`, `assets/`, favicon, robots.txt, sitemap.xml) + push a `main`.
+3. [x] Proyecto Vercel `bakhoor` creado y conectado al repo — **en vivo:** https://bakhoor-ruby.vercel.app
+4. [x] Rediseño de la landing (hero asimétrico con medallón geométrico, sección de historia, tarjetas estilo catálogo) — ver detalle en `seo_y_arquitectura.md`.
 5. [ ] (Cuando haga falta) Aprovisionar Supabase vía Vercel Marketplace para catálogo/leads.
-6. [ ] Confirmar número de WhatsApp real y actualizarlo en `index.html`.
+6. [ ] Confirmar número de WhatsApp real y actualizarlo en `index.html` (sigue siendo el de la factura de Shoppex).
 7. [ ] Sumar fotos reales de producto en cuanto lleguen.
+8. [ ] Dominio propio (opcional) — hoy vive en `bakhoor-ruby.vercel.app`, el `canonical`/`og:image` del HTML todavía apuntan al placeholder `bakhoor.ve`.
