@@ -163,7 +163,11 @@
     padding: 34px 26px;
     border-right: 1px solid rgba(11,11,13,.12);
     border-bottom: 1px solid rgba(11,11,13,.12);
+    text-decoration: none; color: inherit; display: block;
   }
+  .card:hover { background: rgba(255,255,255,.03); }
+  .ver-catalogo { text-align: center; margin-top: 40px; }
+  .ver-catalogo a { color: var(--bkh-burdeos); font-weight: 700; text-decoration: none; font-size: 14.5px; border-bottom: 1px solid var(--bkh-burdeos); padding-bottom: 2px; }
   .card:last-child { border-right: none; }
   .card .no { font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; color: var(--bkh-oro); opacity: .9; }
   .card .marca-mini { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--bkh-burdeos); margin: 14px 0 8px; }
@@ -224,7 +228,7 @@
       <nav>
         <a href="#historia">Nosotros</a>
         <a href="#como-comprar">Cómo comprar</a>
-        <a href="#destacados">Catálogo</a>
+        <a href="catalogo.html">Catálogo</a>
         <a href="#zonas">Zonas de entrega</a>
       </nav>
       <a class="btn-wsp" href="https://wa.me/584141462030?text=Hola%20Bakhoor%2C%20quiero%20ver%20el%20cat%C3%A1logo%20de%20perfumes" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
@@ -313,28 +317,29 @@
         <p>El catálogo completo tiene más de 25 referencias — estas tres cubren los perfiles que más se preguntan por WhatsApp: amaderado, floral y especiado.</p>
       </div>
       <div class="cards">
-        <div class="card">
+        <a class="card" href="producto/rasasi-hawas-27.html">
           <div class="no">Nº 01</div>
           <div class="marca-mini">Rasasi</div>
           <h3>Hawas</h3>
           <p class="notas">Amaderado-acuático: manzana y bergamota de salida, ámbar y almizcle de fondo. Proyección fuerte, ideal de noche.</p>
           <div class="precio">$55</div>
-        </div>
-        <div class="card">
+        </a>
+        <a class="card" href="producto/lattafa-yara-23.html">
           <div class="no">Nº 02</div>
           <div class="marca-mini">Lattafa</div>
           <h3>Yara</h3>
           <p class="notas">Floral-gourmand: vainilla y frutas blancas, con un fondo cálido de almendra. La referencia femenina que más se repite en los pedidos.</p>
           <div class="precio">$40</div>
-        </div>
-        <div class="card">
+        </a>
+        <a class="card" href="producto/armaf-club-de-nuit-intense-3.html">
           <div class="no">Nº 03</div>
           <div class="marca-mini">Armaf</div>
           <h3>Club de Nuit Intense</h3>
           <p class="notas">Especiado-afrutado con salida de piña y fondo de abedul ahumado. La línea insignia de Armaf, la más pedida de la casa.</p>
           <div class="precio">$55</div>
-        </div>
+        </a>
       </div>
+      <div class="ver-catalogo"><a href="catalogo.html">Ver las 28 fragancias del catálogo completo →</a></div>
     </div>
   </section>
 
