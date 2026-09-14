@@ -20,6 +20,16 @@ Si más adelante el negocio crece y se necesita algo más (formulario de pedido,
 - Datos estructurados (`schema.org/Store`) con `areaServed` en Caracas y Punto Fijo — ayuda a que buscadores entiendan que el negocio sirve a esas dos ciudades específicamente.
 - `rel="canonical"` ya está en el HTML, pero apunta a `https://bakhoor.ve/` como **placeholder** — no es un dominio real todavía. Hay que reemplazarlo por el dominio real en cuanto se compre uno (o quitarlo si la página solo va a vivir en Facebook/Instagram y no en un dominio propio).
 
+## Rediseño (13/09/2026) — de genérico a algo con dirección propia
+El usuario pidió mejorar mucho la página porque se veía genérica. Se aplicó la skill `frontend-design-direction` (importada de ECC) y el checklist de "AI slop" de `design-system` para auditar y corregir:
+- **Hero**: antes era texto centrado sobre gradientes decorativos difusos (el anti-patrón #1 de "AI slop"). Ahora es una composición asimétrica: copy a la izquierda, a la derecha un medallón circular con un patrón geométrico de rombos+puntos (el mismo motivo del logo) — es el "detalle memorable" que ata la landing a la identidad de marca en vez de ser intercambiable con cualquier otra landing.
+- **Sección "Cómo empezó" (nueva)**: la landing no tenía ninguna sección de marca/historia — se agregó copy real y específico (el pedido mayorista de Miami, la razón de mostrar fotos reales) en vez de relleno genérico.
+- **"Destacados" → "Tres puntos de partida"**: las tarjetas ya no son cajas genéricas tipo SaaS — ahora tienen numeración editorial ("Nº 01/02/03") como catálogo de casa de perfumes, con notas olfativas reales (salida/fondo) en vez de un adjetivo vago ("el favorito").
+- Se quitó una animación de scroll-reveal que se probó y falló (la sección quedaba invisible en la captura de verificación) — se prefirió dejar la sección siempre visible antes que una animación decorativa que puede fallar.
+
+## SEO técnico agregado en esta pasada
+Con la skill `seo` (importada de ECC): favicon real (`favicon-32.png`, `icon-192.png`, `apple-touch-icon.png`, generados del logo), `robots.txt`, `sitemap.xml`, `theme-color`, y un punto de conexión ya comentado en el `<head>` para pegar el ID real de Plausible/GA4/Meta Pixel apenas exista (no se inventó ningún ID).
+
 ## Pendiente para publicar esto de verdad
 1. **Dominio real** (opcional): si se quiere una URL propia tipo `bakhoor.ve` o `bakhoor.com`, hay que comprarlo — no está incluido en este entregable. Sin dominio propio, esta misma página se puede publicar gratis en un subdominio (Vercel/Netlify), como se hizo con la vista previa de El Códice (`vista-previa-vercel.vercel.app`).
 2. **Confirmar el número de WhatsApp** — ahora mismo el link usa el número de la factura de Shoppex como placeholder (ver `identidad_marca.md`).
