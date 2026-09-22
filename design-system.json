@@ -1,0 +1,70 @@
+{
+  "$schema": "bakhoor-design-system-v1",
+  "actualizado": "2026-09-22",
+  "marca": {
+    "nombre": "Bakhoor",
+    "categoria": "Perfumería árabe (reventa) — Afnan, Armaf, Lattafa, Rasasi, Fragrance World, Maison Alhambra, Fragaby",
+    "ciudades_venta": ["Caracas", "Punto Fijo"],
+    "regla_ciudades": "Mencionar SIEMPRE ambas ciudades, nunca asumir o mostrar solo una.",
+    "canales": ["Facebook", "Instagram", "WhatsApp"],
+    "cta_unico": "Escríbenos por WhatsApp",
+    "tono": {
+      "descripcion": "Sofisticado, sensorial, no urgente — opuesto al tono directo de AutoVzla",
+      "evitar": [
+        "Urgencia agresiva tipo 'compra ya', descuentos gritados",
+        "Estereotipos visuales cliché de 'lo árabe' (alfombras voladoras, genios, camellos)",
+        "Comparar 1 a 1 con una fragancia de diseñador por nombre de marca de lujo (riesgo de publicidad comparativa) — usar familia olfativa en su lugar"
+      ]
+    }
+  },
+  "paleta": {
+    "negro": "#0B0B0D",
+    "dorado": "#C9A24B",
+    "dorado_claro": "#E7C874",
+    "burdeos_oud": "#6B1E2B",
+    "crema": "#F5EDE0",
+    "regla": "Nunca blanco puro (#FFFFFF). Nunca colores fuera de esta paleta sin pedirlo el usuario explícitamente."
+  },
+  "tipografia": {
+    "titulos": "Playfair Display",
+    "texto": "Inter",
+    "regla": "Nunca tipografías finas/decorativas fuera de estas dos sin aprobación."
+  },
+  "motivo_visual": {
+    "patron": "Rombo + punto (lattice geométrico), el mismo motivo del logo",
+    "uso": "Medallón del hero, placeholders de producto — es el 'detalle memorable' que ata toda pieza a la identidad. No reemplazar por gradientes decorativos ni ilustraciones genéricas de IA."
+  },
+  "dimensiones": {
+    "logo": "500x500",
+    "post_ficha_producto": "1080x1080",
+    "vertical_reels_stories": "1080x1920"
+  },
+  "reglas_contenido_no_negociables": [
+    "La foto de cada perfume debe ser real (la botella tal cual llega) — nunca arte genérico de internet ni imagen generada por IA haciéndose pasar por el producto en venta. Mientras no haya foto real, usar el placeholder de marca (ícono de botella + patrón geométrico + texto 'Foto real disponible al escribirnos').",
+    "Nunca inventar o mostrar un número de WhatsApp distinto al confirmado. Hoy el sitio usa el número de la factura de Shoppex como placeholder (+58 414-146-2030) — PENDIENTE de confirmación real, no asumir que es el número de negocio definitivo.",
+    "Nunca cambiar precios sin fuente: el precio vigente vive en entregables/bakhoor/catalogo/estrategia_precios.md (fórmula precio = redondear_a_5(costo×2+5) sobre el costo mayorista real de la factura Shoppex #5678030).",
+    "Nunca cambiar paleta, tipografía o tono de marca sin que el usuario lo pida expresamente."
+  ],
+  "arquitectura_sitio": {
+    "tipo": "Estático, sin backend, sin base de datos",
+    "conversion": "100% vía enlace wa.me de WhatsApp con mensaje pre-rellenado",
+    "paginas": {
+      "index.html": "Landing principal — hero asimétrico, sección de historia de marca, 3 destacados, enlace a catálogo completo",
+      "catalogo.html": "Grid de las 28 referencias del inventario actual",
+      "producto/<slug>.html": "Una página por referencia — marca, notas, precio, CTA WhatsApp con mensaje específico del producto, 3 relacionados de la misma marca, schema.org Product/Offer"
+    },
+    "generador": "build_productos.py (en la raíz del repo, carpeta scripts/ o landing-page/) — regenera catalogo.html + todas las producto/*.html desde una lista PRODUCTOS en Python. Si cambian precios/notas/fotos, editar la lista y volver a correr el script, no editar las 28 páginas a mano."
+  },
+  "seo": {
+    "implementado": ["title/meta description por página", "Open Graph tags", "schema.org Store (home) y Product/Offer (producto)", "robots.txt", "sitemap.xml (30 URLs)", "favicon + apple-touch-icon + icon-192"],
+    "pendiente": "canonical y og:image de index.html todavía apuntan al dominio placeholder bakhoor.ve — actualizar si se confirma dominio propio"
+  },
+  "infraestructura": {
+    "repo_github": "https://github.com/JhonMasterChief/perfumes-",
+    "visibilidad_repo": "público (desde 13/09/2026, cambiado por el usuario)",
+    "hosting": "Vercel, proyecto 'bakhoor' en la cuenta jhonmasterchiefs-projects",
+    "url_publica": "https://bakhoor-ruby.vercel.app",
+    "deploy": "Automático: cualquier git push a main del repo dispara un deploy a producción. No hay paso de deploy separado que confirmar — el punto de confirmación es ANTES del push.",
+    "proteccion_vercel": "ssoProtection desactivada (13/09/2026) — el sitio debe ser accesible sin login de Vercel. Si vuelve a pedir login, es una regresión de configuración, no un comportamiento esperado."
+  }
+}
